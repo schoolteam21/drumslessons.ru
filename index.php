@@ -4,8 +4,8 @@
 <head>
   <title>Уроки игры на барабанах</title>
   <link rel="stylesheet" href="styles/style.css">
-    <script type="text/javascript" src="google.js"></script>
-    <script type="text/javascript" src="yandex.js"></script>
+    <!-- <script type="text/javascript" src="google.js"></script>
+    <script type="text/javascript" src="yandex.js"></script> -->
     <script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
     <script type="text/javascript" src="script.js"></script>
   <meta name="viewport" content="width=device-width">
