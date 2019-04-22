@@ -24,33 +24,28 @@ $fio = $_POST['fio'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 /*
- * Для целей защиты своего сайта нужно провести эти переменные через несколько фильтров - функций php.
- * Первая функция преобразует все символы, которые пользователь попытается добавить в форму:
+ * Convert special characters
 */
 $fio = htmlspecialchars($fio);
 $email = htmlspecialchars($email);
 $phone = htmlspecialchars($phone);
 /*
- * При этом новые переменные в php не создаются, а используются уже имеющиеся. Что сделает фильтр, он преобразует символ "<" в '&lt;'. Также он поступить с другими символами, встречающимися в html коде.
- * Вторая функция декодирует url, если пользователь попытается его добавить в форму.
+ * Convert "<" в '&lt;' and others.
+ * Decode url, if someone adds it to the form.
  */
 $fio = urldecode($fio);
 $email = urldecode($email);
 $phone = urldecode($phone);
 
 /*
- * Третей функцией мы удалим пробелы с начала и конца строки, если таковые имеются:
+ * Delete spaces
  */
 $fio = trim($fio);
 $email = trim($email);
 $phone = trim($phone);
 
-//if(strlen($phone) <= 10)
-//    echo "Некорректный номер телефона\n";
-
-
-mail("lerakenny@gmail.com", "Заявка с сайта", "ФИО:".$fio.". E-mail: ".$email.". Номер телефона: ".$phone ,"From: info@drumslessons.ru \r\n");
-if (mail("lerakenny@mail.ru", "Заказ с сайта", "ФИО:".$fio.". E-mail: ".$email.". Номер телефона: ".$phone ,"From: info@drumslessons.ru \r\n"))
+mail("info@drumslessons.ru", "Заявка с сайта", "ФИО:".$fio.". E-mail: ".$email.". Номер телефона: ".$phone ,"From: info@drumslessons.ru \r\n");
+if (mail("info@drumslessons.ru", "Заказ с сайта", "ФИО:".$fio.". E-mail: ".$email.". Номер телефона: ".$phone ,"From: info@drumslessons.ru \r\n"))
 {
     echo "<div class=\"signin\" id=\"signin\">Сообщение успешно отправлено</div>";
 } else {
